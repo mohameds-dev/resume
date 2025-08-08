@@ -16,8 +16,11 @@ if [ ! -f resume.pdf ]; then
   exit 2
 fi
 
+mkdir -p custom_resumes
+mkdir -p custom_resumes/$COMPANY
+
 # Format the company-specific filename
-OUTFILE="custom_resumes/Mohamed_Abdelrahman_Resume_${COMPANY}.pdf"
+OUTFILE="custom_resumes/$COMPANY/Mohamed_Abdelrahman_Resume.pdf"
 
 # Move the generated PDF
 mv resume.pdf "$OUTFILE"

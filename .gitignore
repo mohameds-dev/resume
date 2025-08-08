@@ -1,5 +1,6 @@
-resume.aux
-resume.log
-resume.out
+*.aux
+*.log
+*.out
+base_resume.pdf
 resume.pdf
 custom_resumes/
