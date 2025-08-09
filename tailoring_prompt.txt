@@ -7,3 +7,5 @@ Feel free to reword the bulletpoints for improvements or to fit the job descript
 Feel free to add or remove sections from resume.tex as to fit the job description more. 
 
 The final generated pdf needs to be ONE page, so we cannot include everything.
+
+Ignore all the other files that I did not refer to (such as .sh files and other files in this directory)
