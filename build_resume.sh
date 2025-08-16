@@ -1,6 +1,10 @@
 #!/bin/bash
 
 resume_file="resume"
+if [ $# -eq 1 ]; then
+    resume_file=$1
+    resume_file=${resume_file%.tex}
+fi
 
 output=$(pdflatex $resume_file.tex 2>&1)
 status=$?
