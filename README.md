@@ -9,10 +9,6 @@ Based off of [sb2nov/resume](https://github.com/sb2nov/resume/)
 - **[Current Resume (2025)](Mohamed_Abdelrahman_Resume_2025.pdf)** - Latest version
 - **[Print Version](print_resume.pdf)**
 
-## Preview
-
-![Resume Preview](resume.png)
-
 ## Usage
 
 This repository contains:
