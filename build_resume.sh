@@ -6,7 +6,7 @@ if [ $# -eq 1 ]; then
     resume_file=${resume_file%.tex}
 fi
 
-output=$(pdflatex $resume_file.tex 2>&1)
+output=$(pdflatex -interaction=nonstopmode $resume_file.tex 2>&1)
 status=$?
 
 if [ $status -ne 0 ]; then
