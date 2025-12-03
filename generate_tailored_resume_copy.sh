@@ -3,12 +3,12 @@
 # Usage: ./generate_tailored_resume_copy.sh CompanyName [spring|fall]
 
 COMPANY="$1"
-GRAD_TERM="$2"
+GRAD_TERM="${2:-fall}"  # Default to "fall" if not provided
 
-if [ -z "$COMPANY" ] || [ -z "$GRAD_TERM" ]; then
+if [ -z "$COMPANY" ]; then
   echo "Usage: $0 CompanyName [spring|fall]"
   echo "  spring -> May 2026"
-  echo "  fall   -> Dec 2026"
+  echo "  fall   -> Dec 2026 (default)"
   exit 1
 fi
 
