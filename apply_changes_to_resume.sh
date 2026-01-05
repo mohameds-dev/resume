@@ -7,12 +7,12 @@ if [ ! -f "resume.pdf" ]; then
     exit 1
 fi
 
-if [ -f "Mohamed_Abdelrahman_Resume_2025.pdf" ]; then
-    echo "Removing old resume: Mohamed_Abdelrahman_Resume_2025.pdf"
-    rm "Mohamed_Abdelrahman_Resume_2025.pdf"
+if [ -f "Mohamed_Abdelrahman_Resume.pdf" ]; then
+    echo "Removing old resume: Mohamed_Abdelrahman_Resume.pdf"
+    rm "Mohamed_Abdelrahman_Resume.pdf"
 fi
 
-echo "Copying resume.pdf to Mohamed_Abdelrahman_Resume_2025.pdf"
-cp "resume.pdf" "Mohamed_Abdelrahman_Resume_2025.pdf"
+echo "Copying resume.pdf to Mohamed_Abdelrahman_Resume.pdf"
+cp "resume.pdf" "Mohamed_Abdelrahman_Resume.pdf"
 
 echo "Resume update completed successfully!"
