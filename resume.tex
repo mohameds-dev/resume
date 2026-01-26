@@ -155,14 +155,14 @@
 \resumeItem{Designed and configured role-based permission groups to enforce to ensure data integrity and controlled access}
 \resumeItemListEnd
 
-\resumeSubheading
-{Software Engineering Intern}{Aug 2022 -- Oct 2022}
-{House Fegla (Egypt)}{Remote}
-\resumeItemListStart
-\resumeItem{Completed full-stack training in React and Django through hands-on development exercises}
-\resumeItem{Built small applications to strengthen front-end and back-end integration skills}
-\resumeItem{Developed proficiency in development workflows, debugging techniques, and code organization}
-\resumeItemListEnd
+% \resumeSubheading
+% {Software Engineering Intern}{Aug 2022 -- Oct 2022}
+% {House Fegla (Egypt)}{Remote}
+% \resumeItemListStart
+% \resumeItem{Completed full-stack training in React and Django through hands-on development exercises}
+% \resumeItem{Built small applications to strengthen front-end and back-end integration skills}
+% \resumeItem{Developed proficiency in development workflows, debugging techniques, and code organization}
+% \resumeItemListEnd
 
 
 \resumeSubHeadingListEnd
@@ -199,32 +199,31 @@
     \resumeSubHeadingListEnd
   
 %-----------PROJECTS-----------
-  \section{Projects}
-  \resumeSubHeadingListStart
-      \resumeProjectHeading
-      {\textbf{C++ Ordered Map Library} $|$ \emph{C++17, CMake, Catch2, GitHub Actions, Test-Driven Development}}{}
-      \resumeItemListStart
-        \resumeItem{Developed high-performance ordered map data structure combining doubly linked list with hash table for O(1) lookups while preserving insertion order, with STL-compatible interface and exception safety}
-        \resumeItem{Implemented comprehensive test suite achieving 97.3\% code coverage across 2,246 test assertions with Catch2, established CI/CD pipeline via GitHub Actions, and verified zero memory leaks through Valgrind analysis}
-      \resumeItemListEnd
+\section{Projects}
+\resumeSubHeadingListStart
 
-      \resumeProjectHeading
-      {\textbf{TallyCart} $|$ \emph{Django, EasyOCR, Prompt Engineering}}{}
-      \resumeItemListStart
-        \resumeItem{Designed Django backend with relational data models to structure product data for optimized shopping recommendations from receipt-derived information}
-        \resumeItem{Integrated EasyOCR with LLM-powered postprocessing to convert raw receipt text into structured product records achieving 98\% average accuracy}
-        \resumeItemListEnd
-    
-      
-      % \resumeProjectHeading
-      % {\textbf{Nota} $|$ \emph{Flutter, Dart, Bloc, SQFlite, Quill, Material 3}}{}
-      % \resumeItemListStart
-      %   \resumeItem{Developed rich-text note-taking app for Android with offline storage using SQFlite, integrated Flutter Quill editor for formatting, and implemented labeling and filtering features for efficient organization}
-      %   \resumeItem{Managed UI and business logic with Bloc state management and designed responsive UI with Material 3 components supporting light/dark theme switching}
-      % \resumeItemListEnd
+    \resumeProjectHeading
+    {\textbf{Echo Journal (AI Voice Diary)} $|$ \emph{Cloudflare Workers, Python (Durable Objects), Llama 3, React}}{}
+    \resumeItemListStart
+      \resumeItem{Architected a serverless voice journaling app using Cloudflare Durable Objects to consolidate Whisper transcription, Llama 3 inference, and SQL state within isolated, low-latency user instances}
+      \resumeItem{Engineered a persistent conversation context system that updates prompt history for coherent multi-turn dialogue, coupled with a privacy-first auto-deletion mechanism for inactive user data}
+    \resumeItemListEnd
 
-      \resumeSubHeadingListEnd
-      
+    \resumeProjectHeading
+    {\textbf{C++ Ordered Map Library} $|$ \emph{C++17, CMake, Google Test, Valgrind, GitHub Actions}}{}
+    \resumeItemListStart
+      \resumeItem{Developed a high-performance ordered map data structure combining a hash table with a custom doubly linked list to achieve $O(1)$ lookups while preserving insertion order for LRU cache simulations}
+      \resumeItem{Implemented ``node splicing'' logic to enable fast Move-To-Front operations without expensive memory reallocations, validating zero memory leaks via Valgrind and reliability with Google Test}
+    \resumeItemListEnd
+
+    \resumeProjectHeading
+    {\textbf{TallyCart} $|$ \emph{Python, Django, PostgreSQL, Docker, Celery, OpenCV}}{}
+    \resumeItemListStart
+      \resumeItem{Building a receipt-to-data pipeline combining OpenCV for image preprocessing and LLM-based parsing to extract structured product data from non-standardized receipt formats}
+      \resumeItem{Designing an asynchronous architecture using Celery workers to handle heavy OCR tasks in the background, implementing a normalization layer to standardize units for cross-store price comparison}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
 
 %-----------TECHNICAL SKILLS-----------
   \section{Technical Skills}
