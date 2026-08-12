@@ -1,0 +1,29 @@
+{
+  "name": "resume",
+  "graph_name": "resume_code",
+  "redis_host": "localhost",
+  "redis_port": 6381,
+  "exclude_paths": [
+    "node_modules",
+    ".local",
+    "target",
+    "dist",
+    "build",
+    ".git",
+    ".claude",
+    "__pycache__",
+    "venv",
+    ".venv",
+    "vendor",
+    "coverage",
+    ".next",
+    ".nuxt",
+    ".output",
+    "*.min.js",
+    "*.map",
+    "*.d.ts"
+  ],
+  "include_extensions": [],
+  "backend": "local",
+  "diagrams_auto_upload": null
+}

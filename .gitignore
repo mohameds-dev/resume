@@ -1,6 +1,9 @@
 *.aux
 *.log
 *.out
+*.tex.bak
 base_resume.pdf
 resume.pdf
 custom_resumes/
+ibm/
+listings/

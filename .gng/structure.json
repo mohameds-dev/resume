@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "root": "/home/mhmdslaptop/projects/resume",
+  "scanned_at": 1786497534,
+  "files": {
+    "/home/mhmdslaptop/projects/resume/pagecount.sh": {
+      "path": "/home/mhmdslaptop/projects/resume/pagecount.sh",
+      "size": 323,
+      "modified": 1776277576,
+      "language": "Bash",
+      "is_indexed": true,
+      "content_hash": 8065546437692131467
+    },
+    "/home/mhmdslaptop/projects/resume/apply_changes_to_resume.sh": {
+      "path": "/home/mhmdslaptop/projects/resume/apply_changes_to_resume.sh",
+      "size": 467,
+      "modified": 1776277576,
+      "language": "Bash",
+      "is_indexed": true,
+      "content_hash": 15692710904368884583
+    },
+    "/home/mhmdslaptop/projects/resume/generate_tailored_resume_copy.sh": {
+      "path": "/home/mhmdslaptop/projects/resume/generate_tailored_resume_copy.sh",
+      "size": 1666,
+      "modified": 1776277576,
+      "language": "Bash",
+      "is_indexed": true,
+      "content_hash": 13793515116750924421
+    }
+  },
+  "tree": {
+    ".": {
+      "name": "",
+      "files": [
+        "generate_tailored_resume_copy.sh",
+        "apply_changes_to_resume.sh",
+        "pagecount.sh"
+      ],
+      "dirs": [
+        ".continue",
+        "listings",
+        "ibm",
+        ".gng"
+      ],
+      "file_count": 3
+    },
+    "ibm": {
+      "name": "ibm",
+      "files": [],
+      "dirs": [],
+      "file_count": 0
+    },
+    "listings": {
+      "name": "listings",
+      "files": [],
+      "dirs": [],
+      "file_count": 0
+    },
+    ".gng": {
+      "name": ".gng",
+      "files": [],
+      "dirs": [],
+      "file_count": 0
+    },
+    ".continue": {
+      "name": ".continue",
+      "files": [],
+      "dirs": [],
+      "file_count": 0
+    }
+  },
+  "signatures": {
+    "/home/mhmdslaptop/projects/resume/apply_changes_to_resume.sh": [],
+    "/home/mhmdslaptop/projects/resume/pagecount.sh": [],
+    "/home/mhmdslaptop/projects/resume/generate_tailored_resume_copy.sh": []
+  }
+}

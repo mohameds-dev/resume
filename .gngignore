@@ -1,0 +1,31 @@
+# Ganglia ignore patterns — paths here are excluded from indexing
+# Syntax: one pattern per line, # for comments
+
+# Dependencies
+node_modules
+vendor
+.local
+
+# Build outputs
+target
+dist
+build
+.next
+.nuxt
+.output
+
+# Tooling (agent worktrees, session state)
+.claude
+
+# Environment & secrets
+.env*
+*.key
+*.pem
+credentials*
+
+# Generated files
+*.min.js
+*.map
+*.d.ts
+coverage
+__pycache__

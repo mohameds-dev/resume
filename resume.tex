@@ -142,8 +142,11 @@
 {Site Reliability Engineer, Intern}{May 2026 -- Present}
 {IBM}{Austin, TX (Hybrid)}
 \resumeItemListStart
-  \resumeItem{Built a Python pipeline to classify and correct mislabeled fields across 1,500+ SRE Jira issues, using constrained LLM label selection, reasoning validation, and human review for edge cases to improve ticket data quality}
+  \resumeItem{Built a schema-driven, multi-prompt LLM pipeline to resolve mislabeled fields across 3,300+ SRE Jira issues, using JSON schema as a dynamic source of truth to generate per-field prompts and avoid context-window overload}
+  \resumeItem{Built a direct API client with token bucket-style request dispatch after the team's single-request LLM interface became a bulk-processing bottleneck, enabling hundreds of concurrent threads within rate limits}
+  \resumeItem{Cut full pipeline runtime from hours to minutes on a multi-thousand-ticket historical dataset by replacing sequential subprocess calls with the concurrent, rate-limited client}
   \resumeItem{Automated closure of 250+ stale SRE Jira issues with a rule-based pipeline analyzing status and activity history, reducing backlog noise for the on-call team}
+  \resumeItem{Built a configurable, diff-based label migration tool with dry-run and rollback support for safe production rollout of label changes}
 \resumeItemListEnd
 
 \resumeSubheading
@@ -223,13 +226,6 @@
     \resumeItemListStart
       \resumeItem{Developed a high-performance ordered map data structure combining a hash table with a custom doubly linked list to achieve $O(1)$ lookups while preserving insertion order for LRU cache simulations}
       \resumeItem{Implemented ``node splicing'' logic to enable fast Move-To-Front operations without expensive memory reallocations, validating zero memory leaks via Valgrind and reliability with Unit tests}
-    \resumeItemListEnd
-
-    \resumeProjectHeading
-    {\textbf{TallyCart} $|$ \emph{Python, Django, PostgreSQL, Docker, Celery, Prompt Engineering}}{}
-    \resumeItemListStart
-      \resumeItem{Building a receipt-to-data pipeline combining OCR and LLM-based parsing to extract structured product data from non-standardized receipt formats}
-      \resumeItem{Designing an asynchronous architecture using Celery workers to handle heavy OCR tasks in the background, implementing a normalization layer to standardize units for cross-store price comparison}
     \resumeItemListEnd
 
 \resumeSubHeadingListEnd

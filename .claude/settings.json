@@ -1,0 +1,100 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "'/home/mhmdslaptop/.nvm/versions/node/v24.14.0/lib/node_modules/@ganglia/cli/node_modules/@ganglia/cli-linux-x64/bin/gng' hook save-nudge # ganglia-hooks",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "'/home/mhmdslaptop/.nvm/versions/node/v24.14.0/lib/node_modules/@ganglia/cli/node_modules/@ganglia/cli-linux-x64/bin/gng' hook recall-gate # ganglia-hooks",
+            "type": "command"
+          }
+        ],
+        "matcher": "Edit|Write|Bash"
+      },
+      {
+        "hooks": [
+          {
+            "command": "'/home/mhmdslaptop/.nvm/versions/node/v24.14.0/lib/node_modules/@ganglia/cli/node_modules/@ganglia/cli-linux-x64/bin/gng' hook block # ganglia-hooks",
+            "type": "command"
+          }
+        ],
+        "matcher": "Grep"
+      },
+      {
+        "hooks": [
+          {
+            "command": "'/home/mhmdslaptop/.nvm/versions/node/v24.14.0/lib/node_modules/@ganglia/cli/node_modules/@ganglia/cli-linux-x64/bin/gng' hook block # ganglia-hooks",
+            "type": "command"
+          }
+        ],
+        "matcher": "Glob"
+      },
+      {
+        "hooks": [
+          {
+            "command": "'/home/mhmdslaptop/.nvm/versions/node/v24.14.0/lib/node_modules/@ganglia/cli/node_modules/@ganglia/cli-linux-x64/bin/gng' hook block # ganglia-hooks",
+            "type": "command"
+          }
+        ],
+        "matcher": "Read"
+      },
+      {
+        "hooks": [
+          {
+            "command": "'/home/mhmdslaptop/.nvm/versions/node/v24.14.0/lib/node_modules/@ganglia/cli/node_modules/@ganglia/cli-linux-x64/bin/gng' hook block # ganglia-hooks",
+            "type": "command"
+          }
+        ],
+        "matcher": "Edit"
+      },
+      {
+        "hooks": [
+          {
+            "command": "'/home/mhmdslaptop/.nvm/versions/node/v24.14.0/lib/node_modules/@ganglia/cli/node_modules/@ganglia/cli-linux-x64/bin/gng' hook block # ganglia-hooks",
+            "type": "command"
+          }
+        ],
+        "matcher": "Write"
+      },
+      {
+        "hooks": [
+          {
+            "command": "'/home/mhmdslaptop/.nvm/versions/node/v24.14.0/lib/node_modules/@ganglia/cli/node_modules/@ganglia/cli-linux-x64/bin/gng' hook block # ganglia-hooks",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "'/home/mhmdslaptop/.nvm/versions/node/v24.14.0/lib/node_modules/@ganglia/cli/node_modules/@ganglia/cli-linux-x64/bin/gng' hook recall-nudge # ganglia-hooks",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "'/home/mhmdslaptop/.nvm/versions/node/v24.14.0/lib/node_modules/@ganglia/cli/node_modules/@ganglia/cli-linux-x64/bin/gng' hook save-gate # ganglia-hooks",
+            "type": "command"
+          }
+        ]
+      }
+    ]
+  }
+}
