@@ -1,15 +1,15 @@
 {
   "version": 1,
   "root": "/home/mhmdslaptop/projects/resume",
-  "scanned_at": 1786497534,
+  "scanned_at": 1786499608,
   "files": {
     "/home/mhmdslaptop/projects/resume/pagecount.sh": {
       "path": "/home/mhmdslaptop/projects/resume/pagecount.sh",
-      "size": 323,
-      "modified": 1776277576,
+      "size": 563,
+      "modified": 1786499539,
       "language": "Bash",
       "is_indexed": true,
-      "content_hash": 8065546437692131467
+      "content_hash": 11579456231172222958
     },
     "/home/mhmdslaptop/projects/resume/apply_changes_to_resume.sh": {
       "path": "/home/mhmdslaptop/projects/resume/apply_changes_to_resume.sh",
@@ -26,6 +26,14 @@
       "language": "Bash",
       "is_indexed": true,
       "content_hash": 13793515116750924421
+    },
+    "/home/mhmdslaptop/projects/resume/setup_project_onetime.sh": {
+      "path": "/home/mhmdslaptop/projects/resume/setup_project_onetime.sh",
+      "size": 3186,
+      "modified": 1786499693,
+      "language": "Bash",
+      "is_indexed": true,
+      "content_hash": 368444875058595060
     }
   },
   "tree": {
@@ -40,14 +48,29 @@
         ".continue",
         "listings",
         "ibm",
+        "custom_resumes",
         ".gng"
       ],
       "file_count": 3
+    },
+    ".continue": {
+      "name": ".continue",
+      "files": [],
+      "dirs": [],
+      "file_count": 0
     },
     "ibm": {
       "name": "ibm",
       "files": [],
       "dirs": [],
+      "file_count": 0
+    },
+    "custom_resumes": {
+      "name": "custom_resumes",
+      "files": [],
+      "dirs": [
+        "Google"
+      ],
       "file_count": 0
     },
     "listings": {
@@ -62,8 +85,8 @@
       "dirs": [],
       "file_count": 0
     },
-    ".continue": {
-      "name": ".continue",
+    "custom_resumes/Google": {
+      "name": "custom_resumes/Google",
       "files": [],
       "dirs": [],
       "file_count": 0
@@ -72,6 +95,7 @@
   "signatures": {
     "/home/mhmdslaptop/projects/resume/apply_changes_to_resume.sh": [],
     "/home/mhmdslaptop/projects/resume/pagecount.sh": [],
+    "/home/mhmdslaptop/projects/resume/setup_project_onetime.sh": [],
     "/home/mhmdslaptop/projects/resume/generate_tailored_resume_copy.sh": []
   }
 }

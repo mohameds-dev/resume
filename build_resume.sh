@@ -15,7 +15,7 @@ fi
 
 # Check page count if PDF was generated successfully
 if [ $status -eq 0 ] && [ -f "$resume_file.pdf" ]; then
-    page_count=$(./pagecount.sh "$resume_file.pdf" 2>/dev/null)
+    page_count=$(./pagecount.sh "$resume_file.pdf")
     if [ -n "$page_count" ] && [ "$page_count" -gt 1 ]; then
         echo "Warning: PDF has $page_count pages (expected 1 page)" >&2
     fi

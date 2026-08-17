@@ -17,4 +17,16 @@ if ! file "$FILE" | grep -qi "PDF"; then
     exit 1
 fi
 
-pdfinfo "$FILE" 2>/dev/null | awk -F': *' '/Pages:/ {print $2; exit}'
+if ! command -v pdfinfo >/dev/null 2>&1; then
+    echo "Error: pdfinfo not found (install poppler-utils)" >&2
+    exit 1
+fi
+
+PAGES=$(pdfinfo "$FILE" | awk -F': *' '/Pages:/ {print $2; exit}')
+
+if [ -z "$PAGES" ]; then
+    echo "Error: could not determine page count for $FILE" >&2
+    exit 1
+fi
+
+echo "$PAGES"
