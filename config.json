@@ -1,0 +1,15 @@
+{
+  "name": "Mohamed Abdelrahman",
+  "email": "msabdelrahman02@gmail.com",
+  "phone": "832-419-9579",
+  "linkedin_url": "https://www.linkedin.com/in/msabdelrahman02",
+  "github_url": "https://github.com/mohameds-dev/",
+  "portfolio_url": "https://mohameds.dev/",
+  "university": "University of Houston",
+  "resume_filename": "Mohamed_Abdelrahman_Resume",
+  "default_graduation_term": "fall",
+  "graduation_dates": {
+    "spring": "May 2026",
+    "fall": "Dec 2026"
+  }
+}

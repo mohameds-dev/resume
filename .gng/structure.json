@@ -13,27 +13,27 @@
     },
     "/home/mhmdslaptop/projects/resume/apply_changes_to_resume.sh": {
       "path": "/home/mhmdslaptop/projects/resume/apply_changes_to_resume.sh",
-      "size": 467,
-      "modified": 1776277576,
+      "size": 442,
+      "modified": 1786986457,
       "language": "Bash",
       "is_indexed": true,
-      "content_hash": 15692710904368884583
+      "content_hash": 16084543851965016532
     },
     "/home/mhmdslaptop/projects/resume/generate_tailored_resume_copy.sh": {
       "path": "/home/mhmdslaptop/projects/resume/generate_tailored_resume_copy.sh",
-      "size": 1666,
-      "modified": 1776277576,
+      "size": 1346,
+      "modified": 1786986452,
       "language": "Bash",
       "is_indexed": true,
-      "content_hash": 13793515116750924421
+      "content_hash": 13616752023344210303
     },
     "/home/mhmdslaptop/projects/resume/setup_project_onetime.sh": {
       "path": "/home/mhmdslaptop/projects/resume/setup_project_onetime.sh",
-      "size": 3186,
-      "modified": 1786499693,
+      "size": 3779,
+      "modified": 1786986477,
       "language": "Bash",
       "is_indexed": true,
-      "content_hash": 368444875058595060
+      "content_hash": 13196382806195574152
     }
   },
   "tree": {
@@ -94,8 +94,20 @@
   },
   "signatures": {
     "/home/mhmdslaptop/projects/resume/apply_changes_to_resume.sh": [],
+    "/home/mhmdslaptop/projects/resume/render_resume.sh": [
+      [
+        "escape",
+        395639681464253593
+      ]
+    ],
     "/home/mhmdslaptop/projects/resume/pagecount.sh": [],
     "/home/mhmdslaptop/projects/resume/setup_project_onetime.sh": [],
-    "/home/mhmdslaptop/projects/resume/generate_tailored_resume_copy.sh": []
+    "/home/mhmdslaptop/projects/resume/generate_tailored_resume_copy.sh": [],
+    "/home/mhmdslaptop/projects/resume/render_resume.py": [
+      [
+        "main",
+        13939360447687515006
+      ]
+    ]
   }
 }

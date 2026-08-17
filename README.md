@@ -19,13 +19,17 @@ This repository contains:
 
 ### Setup
 
-Before using the build scripts, install their dependencies (LaTeX, `pdfinfo`, `file`) with:
+Before using the build scripts, install their dependencies (LaTeX, `pdfinfo`, `file`, `jq`) with:
 
 ```bash
 ./setup_project_onetime.sh
 ```
 
-This is a one-time step (safe to re-run) that works on Debian/Ubuntu (`apt`), macOS (`brew`), and Fedora/RHEL (`dnf`).
+This is a one-time step (safe to re-run) that works on Debian/Ubuntu (`apt`), macOS (`brew`), and Fedora/RHEL (`dnf`). It also creates the local `info/projects/` and `info/job_listings/` folders (gitignored) used when tailoring the resume.
+
+### Using this as your own template
+
+All personal/identity info (name, contact info, university, graduation dates, output filename) lives in [`config.json`](config.json) — edit that one file to make this resume yours. Build scripts render `resume.tex`'s `@@TOKEN@@` placeholders from it automatically; see `CLAUDE.md` for details on the full workflow.
 
 ## Original Template
 

@@ -237,21 +237,26 @@ Experts: `architect`, `security`, `database`, `api`, `performance`, `testing`, `
 
 ## Resume workflow
 
-This repo maintains a LaTeX resume. Several files exist with distinct, non-overlapping roles — don't conflate them:
+This repo maintains a LaTeX resume, structured so it can be forked and reused by anyone — personal info lives in one config file, not scattered across scripts or hardcoded in `.tex` sources.
 
-- `resume.tex` — the main resume version, our **work zone**. This is the draft we actively edit and tailor.
+- `config.json` — the single source of truth for identity/config data: `name`, `email`, `phone`, `linkedin_url`, `github_url`, `portfolio_url`, `university`, `resume_filename` (the tracked output PDF's base name), and `graduation_dates` (a map of term → date, plus `default_graduation_term`). To fork this repo for yourself, edit this file — nothing else.
+- `render_resume.sh <input.tex> <output.tex> [graduation_term]` — substitutes `@@NAME@@`, `@@EMAIL@@`, `@@PHONE@@`, `@@LINKEDIN_URL@@`, `@@GITHUB_URL@@`, `@@PORTFOLIO_URL@@`, `@@UNIVERSITY@@`, `@@GRAD_DATE@@` tokens in a `.tex` file with values from `config.json`. `graduation_term` selects which entry of `graduation_dates` to use (defaults to `default_graduation_term`). Called internally by `build_resume.sh` and `generate_tailored_resume_copy.sh` — you normally don't invoke it directly.
+- `resume.tex` — the main resume version, our **work zone**. This is the draft we actively edit and tailor. Contains `@@...@@` tokens for identity/education fields — never hardcode name/contact/university/grad-date text directly here.
 - `base_resume.tex` — an archive containing every entry that has ever existed across all versions. Very bloated. Kept only as a point of reference (e.g. to pull back an old bullet); never built or edited as the active resume.
-- `print_resume.tex` — a copy of `resume.tex`'s content, but with header links kept hardcoded (not shortened/dynamic), used specifically for printing on paper at career fairs.
-- `build_resume.sh [file]` — builds a `.tex` file into a `.pdf` (defaults to `resume.tex`; pass a name without extension, e.g. `print_resume`, to build a different file).
-- `apply_changes_to_resume.sh` — copies `resume.pdf` over `Mohamed_Abdelrahman_Resume.pdf`, the main tracked PDF. Run this as the final step once `resume.pdf` is finalized, to publish the change.
+- `print_resume.tex` — a copy of `resume.tex`'s content, used specifically for printing on paper at career fairs. Also uses `@@...@@` tokens.
+- `build_resume.sh [file]` — renders a `.tex` file's tokens via `render_resume.sh`, then builds it into a `.pdf` (defaults to `resume.tex`; pass a name without extension, e.g. `print_resume`, to build a different file).
+- `apply_changes_to_resume.sh` — copies `resume.pdf` over `<resume_filename>.pdf` (from `config.json`), the main tracked PDF. Run this as the final step once `resume.pdf` is finalized, to publish the change.
 - `pagecount.sh <pdf>` — reports whether a PDF is 1 page or more. The resume must stay under 1 page: shorten text rather than letting content spill over. Line wrap-arounds that leave incomplete/orphaned trailing lines are the main enemy of fitting on 1 page — watch for those first when trimming.
-- `generate_tailored_resume_copy.sh CompanyName [spring|fall]` — generates a tailored resume PDF for a specific job requisition based on the current `resume.tex`, saved to `custom_resumes/CompanyName/Mohamed_Abdelrahman_Resume.pdf`. Always pass the correct company name (and grad term, if relevant to the posting) so the output lands in the right directory.
-- `listings/` — job postings saved as `.html`/`.mhtml` files for you to parse and use when tailoring `resume.tex` to a specific role.
+- `generate_tailored_resume_copy.sh CompanyName [graduation_term]` — generates a tailored resume PDF for a specific job requisition based on the current `resume.tex`, saved to `custom_resumes/CompanyName/<resume_filename>.pdf`. `graduation_term` must be a key in `config.json`'s `graduation_dates` (e.g. `spring`/`fall`) — run with no args to list the available terms. Always pass the correct company name (and grad term, if relevant to the posting) so the output lands in the right directory.
+- `setup_project_onetime.sh` — one-time environment setup; also creates the (gitignored) `info/projects/` and `info/job_listings/` directories described below. Safe to re-run.
+- `info/` — gitignored, local-only scratch space for material that feeds the resume but should never be committed (it's specific to whoever is using this fork):
+  - `info/projects/<name>/` — notes/experience banks for a personal project or past role (e.g. an `<name>_experience_bank.txt`), used as source material when writing or tailoring bullets.
+  - `info/job_listings/` — job postings saved as `.html`/`.mhtml` files for you to parse and use when tailoring `resume.tex` to a specific role.
 
 ### Tailoring workflow for a job listing
 
-1. Parse the relevant file in `listings/` to understand the role.
-2. Edit `resume.tex` to tailor content (wording, emphasis, bullet selection) to that job.
+1. Parse the relevant file in `info/job_listings/` to understand the role.
+2. Edit `resume.tex` to tailor content (wording, emphasis, bullet selection) to that job. Leave the `@@...@@` tokens alone — only edit surrounding content.
 3. Build and verify page count stays at 1 (`build_resume.sh`, `pagecount.sh`) — reword/shorten rather than letting it overflow.
-4. Run `generate_tailored_resume_copy.sh CompanyName [spring|fall]` to produce and save the company-specific copy.
+4. Run `generate_tailored_resume_copy.sh CompanyName [graduation_term]` to produce and save the company-specific copy.
 5. **Always use `generate_tailored_resume_copy.sh` to persist a tailored copy for each job position.** If we skip it, the tailoring changes are lost since `resume.tex` is meant to remain a rough, general-purpose work-bench draft rather than permanently drifting toward one specific job.

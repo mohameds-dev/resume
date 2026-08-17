@@ -113,11 +113,11 @@
 % \end{tabular*}
 
 \begin{center}
-    \textbf{\fontsize{16pt}{24pt}\selectfont \scshape Mohamed Abdelrahman} \\ \vspace{0pt}
-    \small 832-419-9579 $|$ \href{mailto:msabdelrahman02@gmail.com}{msabdelrahman02@gmail.com} $|$ 
-    \href{https://www.linkedin.com/in/msabdelrahman02}{LinkedIn} $|$
-    \href{https://github.com/mohameds-dev/}{GitHub} $|$
-    \href{https://mohameds.dev/}{Portfolio}
+    \textbf{\fontsize{16pt}{24pt}\selectfont \scshape @@NAME@@} \\ \vspace{0pt}
+    \small @@PHONE@@ $|$ \href{mailto:@@EMAIL@@}{@@EMAIL@@} $|$
+    \href{@@LINKEDIN_URL@@}{LinkedIn} $|$
+    \href{@@GITHUB_URL@@}{GitHub} $|$
+    \href{@@PORTFOLIO_URL@@}{Portfolio}
 \end{center}
 \vspace{-15pt}
 
@@ -126,7 +126,7 @@
 \section{Education}
   \resumeSubHeadingListStart
     \resumeSubheading
-      {University of Houston}{Expected Graduation: Dec 2026}
+      {@@UNIVERSITY@@}{Expected Graduation: @@GRAD_DATE@@}
       {Bachelor of Science in Computer Science - Major GPA: 3.81}{Houston, TX}
   \resumeSubHeadingListEnd
 \vspace{-7pt}
@@ -142,9 +142,9 @@
 {Site Reliability Engineer, Intern}{May 2026 -- Present}
 {IBM}{Austin, TX (Hybrid)}
 \resumeItemListStart
-  \resumeItem{Built a schema-driven, multi-prompt LLM pipeline to resolve mislabeled fields across 3,300+ SRE Jira issues, using JSON schema as a dynamic source of truth to generate per-field prompts and avoid context-window overload}
-  \resumeItem{Built a direct API client with token bucket-style request dispatch after the team's single-request LLM interface became a bulk-processing bottleneck, enabling hundreds of concurrent threads within rate limits}
-  \resumeItem{Cut full pipeline runtime from hours to minutes on a multi-thousand-ticket historical dataset by replacing sequential subprocess calls with the concurrent, rate-limited client}
+  \resumeItem{Built a rule-based label migration tool in Python with an LLM fallback for ambiguous cases to resolve mislabeled fields across 4,000+ SRE Jira issues, making thousands of hours in team credit trackable}
+  \resumeItem{Built a direct API client with token bucket-style request dispatch after the team's single-request LLM interface became a bulk-processing bottleneck, tuning it to 128 concurrent workers that could run continuously without overloading the API}
+  \resumeItem{Built a schema-driven, multi-prompt LLM pipeline to analyze 243 SRE incident reports in parallel, extracting scope, timeline, root cause, customer impact, and RCA per issue, cutting analysis time from 2.8 hours to \textasciitilde10 minutes (17x speedup)}
   \resumeItem{Automated closure of 250+ stale SRE Jira issues with a rule-based pipeline analyzing status and activity history, reducing backlog noise for the on-call team}
   \resumeItem{Built a configurable, diff-based label migration tool with dry-run and rollback support for safe production rollout of label changes}
 \resumeItemListEnd
@@ -222,10 +222,10 @@
     %   \resumeItemListEnd
 
     \resumeProjectHeading
-    {\textbf{C++ Ordered Map Library} $|$ \emph{C++17, CMake, Test Driven Development, Valgrind, GitHub Actions}}{}
+    {\textbf{TallyCart} $|$ \emph{Django, PostgreSQL, Celery/Redis, Docker, LLM Integration}}{}
     \resumeItemListStart
-      \resumeItem{Developed a high-performance ordered map data structure combining a hash table with a custom doubly linked list to achieve $O(1)$ lookups while preserving insertion order for LRU cache simulations}
-      \resumeItem{Implemented ``node splicing'' logic to enable fast Move-To-Front operations without expensive memory reallocations, validating zero memory leaks via Valgrind and reliability with Unit tests}
+      \resumeItem{Architected a Django/PostgreSQL backend with Celery/Redis background processing, isolating OCR, LLM, and pricing logic behind swappable interfaces across 7 modules with 30+ tests}
+      \resumeItem{Built a receipt-to-data pipeline chaining OCR with LLM-based extraction across three interchangeable providers with automatic failover, secured via custom JWT authentication}
     \resumeItemListEnd
 
 \resumeSubHeadingListEnd

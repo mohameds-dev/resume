@@ -1,36 +1,22 @@
 #!/bin/bash
 
-# Usage: ./generate_tailored_resume_copy.sh CompanyName [spring|fall]
+# Usage: ./generate_tailored_resume_copy.sh CompanyName [graduation_term]
+# graduation_term must be a key under "graduation_dates" in config.json
+# (defaults to "default_graduation_term" in config.json)
 
 COMPANY="$1"
-GRAD_TERM="${2:-fall}"  # Default to "fall" if not provided
+GRAD_TERM="$2"
 
 if [ -z "$COMPANY" ]; then
-  echo "Usage: $0 CompanyName [spring|fall]"
-  echo "  spring -> May 2026"
-  echo "  fall   -> Dec 2026 (default)"
+  echo "Usage: $0 CompanyName [graduation_term]"
+  echo "Available graduation terms (config.json):"
+  jq -r '.graduation_dates | to_entries[] | "  \(.key) -> \(.value)"' config.json
   exit 1
 fi
 
-# Set graduation date based on term
-if [ "$GRAD_TERM" = "fall" ]; then
-  GRAD_DATE="Dec 2026"
-elif [ "$GRAD_TERM" = "spring" ]; then
-  GRAD_DATE="May 2026"
-else
-  echo "Error: Invalid graduation term. Use 'spring' or 'fall'"
-  echo "  spring -> May 2026"
-  echo "  fall   -> Dec 2026"
-  exit 1
-fi
-
-# Create a temporary copy of resume.tex with the graduation date replaced
+# Create a temporary copy of resume.tex with config values substituted in
 TEMP_TEX="resume_temp.tex"
-cp resume.tex "$TEMP_TEX"
-
-# Replace the graduation date in the temporary file
-# Pattern: {University of Houston}{May 2026} or {University of Houston}{Dec 2026}
-sed -i "s/{University of Houston}{[A-Z][a-z][a-z] 2026}/{University of Houston}{$GRAD_DATE}/" "$TEMP_TEX"
+./render_resume.sh resume.tex "$TEMP_TEX" "$GRAD_TERM" || exit 1
 
 # Generate the PDF from the temporary resume.tex
 pdflatex -interaction=nonstopmode "$TEMP_TEX" > /dev/null
@@ -43,10 +29,11 @@ if [ ! -f resume_temp.pdf ]; then
 fi
 
 mkdir -p custom_resumes
-mkdir -p custom_resumes/$COMPANY
+mkdir -p "custom_resumes/$COMPANY"
 
 # Format the company-specific filename
-OUTFILE="custom_resumes/$COMPANY/Mohamed_Abdelrahman_Resume.pdf"
+RESUME_FILENAME=$(jq -r '.resume_filename' config.json)
+OUTFILE="custom_resumes/$COMPANY/${RESUME_FILENAME}.pdf"
 
 # Move the generated PDF
 mv resume_temp.pdf "$OUTFILE"
@@ -54,4 +41,4 @@ mv resume_temp.pdf "$OUTFILE"
 # Clean up temporary files
 rm -f "$TEMP_TEX" resume_temp.aux resume_temp.log resume_temp.out
 
-echo "Custom resume generated: $OUTFILE (Graduation: $GRAD_DATE)" 
+echo "Custom resume generated: $OUTFILE"

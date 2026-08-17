@@ -4,6 +4,7 @@
 *.tex.bak
 base_resume.pdf
 resume.pdf
+resume_temp.*
+*_rendered.*
 custom_resumes/
-ibm/
-listings/
+info/

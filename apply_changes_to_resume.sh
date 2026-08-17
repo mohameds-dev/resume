@@ -7,12 +7,15 @@ if [ ! -f "resume.pdf" ]; then
     exit 1
 fi
 
-if [ -f "Mohamed_Abdelrahman_Resume.pdf" ]; then
-    echo "Removing old resume: Mohamed_Abdelrahman_Resume.pdf"
-    rm "Mohamed_Abdelrahman_Resume.pdf"
+RESUME_FILENAME=$(jq -r '.resume_filename' config.json)
+TARGET="${RESUME_FILENAME}.pdf"
+
+if [ -f "$TARGET" ]; then
+    echo "Removing old resume: $TARGET"
+    rm "$TARGET"
 fi
 
-echo "Copying resume.pdf to Mohamed_Abdelrahman_Resume.pdf"
-cp "resume.pdf" "Mohamed_Abdelrahman_Resume.pdf"
+echo "Copying resume.pdf to $TARGET"
+cp "resume.pdf" "$TARGET"
 
 echo "Resume update completed successfully!"
