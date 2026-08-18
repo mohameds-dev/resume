@@ -8,7 +8,7 @@ fi
 
 rendered_file="${resume_file}_rendered"
 
-./render_resume.sh "$resume_file.tex" "$rendered_file.tex" || exit 1
+./resume_render.sh "$resume_file.tex" "$rendered_file.tex" || exit 1
 
 output=$(pdflatex -interaction=nonstopmode $rendered_file.tex 2>&1)
 status=$?

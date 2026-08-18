@@ -7,9 +7,5 @@
   "portfolio_url": "https://mohameds.dev/",
   "university": "University of Houston",
   "resume_filename": "Mohamed_Abdelrahman_Resume",
-  "default_graduation_term": "fall",
-  "graduation_dates": {
-    "spring": "May 2026",
-    "fall": "Dec 2026"
-  }
+  "graduation_term": "Dec 2026"
 }

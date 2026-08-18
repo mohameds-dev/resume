@@ -6,5 +6,6 @@ base_resume.pdf
 resume.pdf
 resume_temp.*
 *_rendered.*
+print_resume.tex
 custom_resumes/
 info/

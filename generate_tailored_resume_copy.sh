@@ -1,22 +1,17 @@
 #!/bin/bash
 
-# Usage: ./generate_tailored_resume_copy.sh CompanyName [graduation_term]
-# graduation_term must be a key under "graduation_dates" in config.json
-# (defaults to "default_graduation_term" in config.json)
+# Usage: ./generate_tailored_resume_copy.sh CompanyName
 
 COMPANY="$1"
-GRAD_TERM="$2"
 
 if [ -z "$COMPANY" ]; then
-  echo "Usage: $0 CompanyName [graduation_term]"
-  echo "Available graduation terms (config.json):"
-  jq -r '.graduation_dates | to_entries[] | "  \(.key) -> \(.value)"' config.json
+  echo "Usage: $0 CompanyName"
   exit 1
 fi
 
 # Create a temporary copy of resume.tex with config values substituted in
 TEMP_TEX="resume_temp.tex"
-./render_resume.sh resume.tex "$TEMP_TEX" "$GRAD_TERM" || exit 1
+./resume_render.sh resume.tex "$TEMP_TEX" || exit 1
 
 # Generate the PDF from the temporary resume.tex
 pdflatex -interaction=nonstopmode "$TEMP_TEX" > /dev/null

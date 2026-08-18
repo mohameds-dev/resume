@@ -1,6 +1,6 @@
 #!/bin/bash
 # Renders a resume .tex template by substituting @@TOKEN@@ placeholders with values from config.json.
-# Usage: ./render_resume.sh <input.tex> <output.tex> [graduation_term]
+# Usage: ./resume_render.sh <input.tex> <output.tex>
 
 set -e
 
@@ -9,10 +9,9 @@ CONFIG="$SCRIPT_DIR/config.json"
 
 INPUT="$1"
 OUTPUT="$2"
-GRAD_TERM="$3"
 
 if [ -z "$INPUT" ] || [ -z "$OUTPUT" ]; then
-    echo "Usage: $0 <input.tex> <output.tex> [graduation_term]" >&2
+    echo "Usage: $0 <input.tex> <output.tex>" >&2
     exit 1
 fi
 
@@ -21,19 +20,12 @@ if [ ! -f "$CONFIG" ]; then
     exit 1
 fi
 
-if [ -z "$GRAD_TERM" ]; then
-    GRAD_TERM=$(jq -r '.default_graduation_term' "$CONFIG")
-fi
-
-GRAD_DATE=$(jq -r --arg term "$GRAD_TERM" '.graduation_dates[$term] // empty' "$CONFIG")
-if [ -z "$GRAD_DATE" ]; then
-    echo "Error: unknown graduation term '$GRAD_TERM'. Available terms:" >&2
-    jq -r '.graduation_dates | to_entries[] | "  \(.key) -> \(.value)"' "$CONFIG" >&2
-    exit 1
-fi
-
 # Escape sed metacharacters (\ and &) so values substitute in literally.
 escape() { printf '%s' "$1" | sed -e 's/[\&]/\\&/g'; }
+
+# Strips the protocol (and leading "www.") for compact plain-text display,
+# e.g. for headers_for_print_resume.tex, where the full https://... would wrap.
+bare() { printf '%s' "$1" | sed -e 's#^https\?://##' -e 's#^www\.##' -e 's#/$##'; }
 
 NAME=$(escape "$(jq -r '.name' "$CONFIG")")
 EMAIL=$(escape "$(jq -r '.email' "$CONFIG")")
@@ -42,12 +34,18 @@ LINKEDIN_URL=$(escape "$(jq -r '.linkedin_url' "$CONFIG")")
 GITHUB_URL=$(escape "$(jq -r '.github_url' "$CONFIG")")
 PORTFOLIO_URL=$(escape "$(jq -r '.portfolio_url' "$CONFIG")")
 UNIVERSITY=$(escape "$(jq -r '.university' "$CONFIG")")
-GRAD_DATE=$(escape "$GRAD_DATE")
+GRAD_DATE=$(escape "$(jq -r '.graduation_term' "$CONFIG")")
+LINKEDIN_BARE=$(escape "$(bare "$(jq -r '.linkedin_url' "$CONFIG")")")
+GITHUB_BARE=$(escape "$(bare "$(jq -r '.github_url' "$CONFIG")")")
+PORTFOLIO_BARE=$(escape "$(bare "$(jq -r '.portfolio_url' "$CONFIG")")")
 
 sed \
     -e "s|@@NAME@@|$NAME|g" \
     -e "s|@@EMAIL@@|$EMAIL|g" \
     -e "s|@@PHONE@@|$PHONE|g" \
+    -e "s|@@LINKEDIN_URL_BARE@@|$LINKEDIN_BARE|g" \
+    -e "s|@@GITHUB_URL_BARE@@|$GITHUB_BARE|g" \
+    -e "s|@@PORTFOLIO_URL_BARE@@|$PORTFOLIO_BARE|g" \
     -e "s|@@LINKEDIN_URL@@|$LINKEDIN_URL|g" \
     -e "s|@@GITHUB_URL@@|$GITHUB_URL|g" \
     -e "s|@@PORTFOLIO_URL@@|$PORTFOLIO_URL|g" \
