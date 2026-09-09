@@ -139,14 +139,14 @@
 \resumeSubHeadingListStart
 
 \resumeSubheading
-{Site Reliability Engineer, Intern}{May 2026 -- Present}
+{Site Reliability Engineer, Intern}{May 2026 -- Aug 2026}
 {IBM}{Austin, TX (Hybrid)}
 \resumeItemListStart
-  \resumeItem{Built a rule-based label migration tool in Python with an LLM fallback for ambiguous cases to resolve mislabeled fields across 4,000+ SRE Jira issues, making thousands of hours in team credit trackable}
-  \resumeItem{Built a direct API client with token bucket-style request dispatch after the team's single-request LLM interface became a bulk-processing bottleneck, tuning it to 128 concurrent workers that could run continuously without overloading the API}
-  \resumeItem{Built a schema-driven, multi-prompt LLM pipeline to analyze 243 SRE incident reports in parallel, extracting scope, timeline, root cause, customer impact, and RCA per issue, cutting analysis time from 2.8 hours to \textasciitilde10 minutes (17x speedup)}
-  \resumeItem{Automated closure of 250+ stale SRE Jira issues with a rule-based pipeline analyzing status and activity history, reducing backlog noise for the on-call team}
-  \resumeItem{Built a configurable, diff-based label migration tool with dry-run and rollback support for safe production rollout of label changes}
+  \resumeItem{Built a rule-based label migration tool in Python integrating Jira's REST API, with an LLM fallback for ambiguous cases, to resolve mislabeled fields across 6,000+ SRE Jira issues, making thousands of hours in team credit trackable}
+  \resumeItem{Built a distributed REST API client with token-bucket rate limiting to coordinate 128 concurrent workers against the LLM API after the team's single-request interface became a bulk-processing bottleneck, sustaining high-throughput access without overloading the backend}
+  \resumeItem{Built a schema-driven, multi-prompt LLM pipeline orchestrating 5 parallel extraction tasks (scope, timeline, root cause, customer impact, RCA) per issue across 300 SRE incident reports, with an independent LLM review pass validating each output, cutting analysis time from 2.8 hours to 10 minutes (17x speedup)}
+
+  \resumeItem{Built a configurable, diff-based label migration tool with dry-run, rollback, and fail-safe checks for safe, reliable production rollout of label changes}
 \resumeItemListEnd
 
 \resumeSubheading
@@ -222,11 +222,15 @@
     %   \resumeItemListEnd
 
     \resumeProjectHeading
-    {\textbf{TallyCart} $|$ \emph{Django, PostgreSQL, Celery/Redis, Docker, LLM Integration}}{}
+    {\textbf{C++ Ordered Map Library} $|$ \emph{C++17, CMake, Catch2, GitHub Actions, Test-Driven Development}}{}
     \resumeItemListStart
-      \resumeItem{Architected a Django/PostgreSQL backend with Celery/Redis background processing, isolating OCR, LLM, and pricing logic behind swappable interfaces across 7 modules with 30+ tests}
-      \resumeItem{Built a receipt-to-data pipeline chaining OCR with LLM-based extraction across three interchangeable providers with automatic failover, secured via custom JWT authentication}
+      \resumeItem{Developed high-performance ordered map data structure combining doubly linked list with hash table for O(1) lookups while preserving insertion order, with STL-compatible interface and exception safety}
+      \resumeItem{Implemented comprehensive test suite achieving 97.3\% code coverage across 2,246 test assertions with Catch2, established CI/CD pipeline via GitHub Actions, and verified zero memory leaks through Valgrind analysis}
     \resumeItemListEnd
+
+
+
+
 
 \resumeSubHeadingListEnd
 

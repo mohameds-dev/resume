@@ -1,11 +1,13 @@
-Using the base resume file 'base_resume.tex' as your sole reference for my all experiences, modify 'resume.tex' to tailor it to the job description under 'custom_resumes/COMPANY/job_desc.txt'.
+Parse the job listing at 'info/job_listings/<LISTING_FILE>' to understand the role, required skills, and keywords.
 
-Make the resume terms match the job description terms where applicable. Do not add skills that I do not have in the 'base_resume.tex' file. Do not add fluff or experiences that it does not contain.
+Using 'base_resume.tex' as the bank of all available experience and bullets, tailor 'resume.tex' to this role:
+- Match terminology to the job description where my experience genuinely supports it
+- Reword bullets to be punchy and direct -- no corporate fluff
+- Prioritize relevance over completeness when cutting for space
+- Do not invent skills, tools, or experience not present in base_resume.tex
+- Keep the result to exactly ONE page -- trim bullets before removing whole sections
 
-Feel free to reword the bulletpoints for improvements or to fit the job description better.
+When trimming to fit, cut in this order: least relevant projects first, then
+weaker bullets within sections, then older/less relevant roles.
 
-Feel free to add or remove sections from resume.tex as to fit the job description more. 
-
-The final generated pdf needs to be ONE page, so we cannot include everything.
-
-Ignore all the other files that I did not refer to (such as .sh files and other files in this directory)
+Never touch @@...@@ tokens.
