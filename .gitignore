@@ -8,3 +8,5 @@ resume_temp.*
 *_rendered.*
 custom_resumes/
 info/
+keys/
+.gng/
